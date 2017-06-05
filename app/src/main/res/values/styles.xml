@@ -1,0 +1,13 @@
+<resources>
+
+	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+		<item name="colorPrimaryDark">#ff424242</item>
+	</style>
+
+	<style name="ToolbarStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">16sp</item>
+		<item name="android:background">@color/primary_text_default_material_light</item>
+	</style>
+
+</resources>

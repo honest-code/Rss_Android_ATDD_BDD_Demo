@@ -1,0 +1,13 @@
+<resources>
+
+	<string name="app_name">RssReader</string>
+	<string name="visit_website">VISIT WEBSITE</string>
+	<string name="search">Search</string>
+	<string name="setting_source">Setting source</string>
+	<string name="search_by_title">Search by title</string>
+	<string name="news_loading_error">Error loading news</string>
+	<string name="no_news">No news</string>
+	<string name="set_source_dialog_cancel">Cancel</string>
+	<string name="set_source_dialog_set">Set</string>
+
+</resources>

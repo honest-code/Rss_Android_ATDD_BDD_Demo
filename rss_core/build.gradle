@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+dependencies {
+	compile project(':rss')
+	compile 'com.intelygenz.android:netclient:1.0.0',
+		'com.intelygenz.android:kvk:1.1.1'
+
+	testCompile 'junit:junit:4.12'
+	testCompile 'org.mockito:mockito-core:2.7.13'
+	testCompile 'com.intelygenz.android:kvkfake:1.1.1'
+}
+

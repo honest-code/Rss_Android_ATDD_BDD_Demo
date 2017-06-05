@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+apply from: 'build_testing.gradle'
+
+def supportVersion = '25.0.1'
+def pathSignProperties = 'sign/keystore.properties'
+def pathVersionProperties = 'version.properties'
+
+def code = 0
+def name = "0.0.0"
+
+android {
+
+	compileSdkVersion 25
+	buildToolsVersion "25.0.2"
+
+	File versionFile = getRootProject().file(pathVersionProperties)
+	if (versionFile.exists()) {
+		Properties properties = new Properties()
+		properties.load(new FileInputStream(versionFile))
+		code = properties['versionCode'].toInteger().intValue()
+		name = properties['versionName']
+	}
+
+	defaultConfig {
+		applicationId "com.igz.rssreader"
+		minSdkVersion 16
+		targetSdkVersion 25
+		versionCode code
+		versionName name
+	}
+	
+	compileOptions.incremental false
+
+	File signFile = getRootProject().file(pathSignProperties)
+	Properties signProperties = new Properties()
+	if (signFile.exists()) {
+		signProperties.load(new FileInputStream(signFile))
+	} else {
+		ant.fail('Sign properties file not found.')
+	}
+
+	signingConfigs {
+		release {
+			storeFile file(signProperties['keystore'])
+			storePassword signProperties['keystore.password']
+			keyAlias signProperties['keyAlias']
+			keyPassword signProperties['keyPassword']
+		}
+	}
+
+	buildTypes {
+		release {
+			minifyEnabled true
+			signingConfig signingConfigs.release
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		}
+	}
+
+	productFlavors {
+		dev {
+			multiDexEnabled true
+			minSdkVersion 21
+		}
+		pro {
+			minSdkVersion 16
+		}
+	}
+}
+
+dependencies {
+	compile project(':rss'),
+		project(':rss_core')
+	compile "com.android.support:appcompat-v7:${supportVersion}",
+		"com.android.support:recyclerview-v7:${supportVersion}",
+		"com.android.support:cardview-v7:${supportVersion}"
+	compile 'com.intelygenz.android:kvksp:1.1.1',
+		'com.intelygenz.android:netokclient:1.3.0'
+	compile 'com.squareup.picasso:picasso:2.5.0'
+	compile 'com.wokdsem.kommander:kommander:1.1.0',
+		'com.wokdsem.kinject:kinject:1.2.0'
+	annotationProcessor 'com.wokdsem.kinject:kinject-compiler:1.2.0'
+}
