@@ -2,9 +2,9 @@
 Rss Android App BDD / ATDD Demo for HonestCode
 
 ## Objetives
-This is a simple Android RSS App with some Acceptance Test in Ghekin connected with the service pro.HonestCode.io.
+This is a simple Android RSS App with some Gherkin Acceptance Tests connected with the service pro.HonestCode.io.
 
-The App is intended to show a functional sample of BDD and ATDD.
+This App is intended to show a functional sample of BDD and ATDD.
 
 
 ## System requisites
@@ -13,17 +13,6 @@ The App is intended to show a functional sample of BDD and ATDD.
 * Android SDK
 * Android Emulator properly configured
 * Honest Code project configured
-
-## Honest Code
-Build a product on Honest Code, with features and scenarios that fit the .features
-
-![](./publish/product.png)
-
-
-![](./publish/feature.png)
-
-
-![](./publish/scenario.png)
 
 ## Use
 
@@ -62,7 +51,20 @@ Verify execution on emulator
 </table>
 
 
-### Upload report
+## HonestCode 
+Log in into pro.HonestCode.io (it´s free). Create a Team, product and blueprint. In the Blueprint import the .features files at folder app/src/androidTest/assets/features/
+
+![](./publish/product.png)
+
+
+![](./publish/feature.png)
+
+
+![](./publish/scenario.png)
+
+
+
+### Upload tests result report to HonestCode
 ```
 adb shell "run-as com.igz.rssreader cat /data/data/com.igz.rssreader/cucumber-reports/cucumber.json" > rssreader-report.json
 ```
