@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class UserInputAFoundedKeyStringInNewsListSearchBox {
 	
-	@When("User input a founded key string in news list search box")
+	@When("user input a founded key string in news list search box")
 	public void user_input_a_founded_key() {
 		NewsPage.userInputKey("diplomacia");
 	}

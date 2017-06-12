@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 public class UserInputANotFoundKeyStringInNewsListSearchBox {
 
 
-	@When("User input a not found key string in news list search box")
+	@When("user input a not found key string in news list search box")
 	public void user_input_a_founded_key() {
 		NewsPage.userInputKey("asdasdfasdfñlaskjdf");
 	}
